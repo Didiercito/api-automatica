@@ -44,6 +44,3 @@ const startServer = async () => {
 };
 
 startServer();
-
-//api-automatica.margaritaydidi.xyz
-
