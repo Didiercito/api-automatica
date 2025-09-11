@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    container_name: api-automatica
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+
+  db:
+    image: mysql:8
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
