@@ -11,5 +11,4 @@ RUN npm install --production
 COPY . .
 
 EXPOSE 3000
-
 CMD ["pm2-runtime", "start", "server.js", "--name", "api-automatica"]
